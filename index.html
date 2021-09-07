@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="clock">
+        <div id="times">07:45:20 PM </div>
+        <div id="dates">26-5-21</div>
+    </div>
+
+    <script>
+        function showCurrentTime(){
+            let date = new Date();
+            let h    = date.getHours();
+            let m    = date.getMinutes();
+            let s    = date.getSeconds();
+            let sessions = "AM";
+
+            if( h >= 12 ){
+                h = h - 12;
+                sessions = "PM"                
+            }
+
+            h = ( h == 0) ? 12 : h;
+            h = (h < 10) ? '0' + h : h; m = (m < 10) ? '0' + m : m; s = (s < 10) ? '0' + s : s;
+            
+            let time = h + ":" + m + ":" + s +" "+ sessions;
+            document.getElementById('times').innerHTML = time;
+            setInterval(showCurrentTime,1000)
+
+            
+            let D = date.getDate();
+            let M = date.getMonth();
+            let Y = date.getFullYear();
+
+            let MN = M + 1;
+            D = (D < 10) ? '0' + D : D; MN = (MN < 10) ? '0' + MN : MN;
+
+            let day = D + "-" + MN + "-" + Y;
+            document.getElementById('dates').innerHTML = day;
+        }
+        showCurrentTime();
+    </script>
+    
+</body>
+</html>

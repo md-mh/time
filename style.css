@@ -1,0 +1,16 @@
+body{
+    background: #ddd;
+}
+.clock{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    color: #ddd;
+    font-size: 100px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px tomato;
+    text-shadow: 0 0 10px red;
+}
